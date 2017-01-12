@@ -17,11 +17,11 @@ internal class ZipUtilities {
      *  ProcessedFilePath struct
      */
     internal struct ProcessedFilePath {
-        let filePathURL: URL
+        let filePathUrl: URL
         let fileName: String?
         
         func filePath() -> String {
-            return filePathURL.path
+            return filePathUrl.path
         }
     }
     
@@ -41,7 +41,7 @@ internal class ZipUtilities {
             var isDirectory: ObjCBool = false
             fileManager.fileExists(atPath: filePath, isDirectory: &isDirectory)
             if !isDirectory.boolValue {
-                let processedPath = ProcessedFilePath(filePathURL: path, fileName: path.lastPathComponent)
+                let processedPath = ProcessedFilePath(filePathUrl: path, fileName: path.lastPathComponent)
                 processedFilePaths.append(processedPath)
             }
             else {
@@ -73,7 +73,7 @@ internal class ZipUtilities {
                 fileManager.fileExists(atPath: filePath, isDirectory: &isDirectory)
                 if !isDirectory.boolValue {
                     let fileName = (directoryName as NSString).appendingPathComponent(filePathComponent)
-                    let processedPath = ProcessedFilePath(filePathURL: path, fileName: fileName)
+                    let processedPath = ProcessedFilePath(filePathUrl: path, fileName: fileName)
                     processedFilePaths.append(processedPath)
                 }
             }

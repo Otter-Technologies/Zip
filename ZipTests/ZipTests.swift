@@ -68,7 +68,7 @@ class ZipTests: XCTestCase {
         }
     }
     
-    func testQuickUnzipOnlineURL() {
+    func testQuickUnzipOnlineUrl() {
         do {
             let filePath = NSURL(string: "http://www.google.com/google.zip")!
             let destinationURL = try Zip.quickUnzipFile(filePath as URL)
